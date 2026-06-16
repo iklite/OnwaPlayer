@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Shadow layer -->
+    <item
+        android:left="0dp"
+        android:top="4dp"
+        android:right="0dp"
+        android:bottom="0dp">
+        <shape android:shape="rectangle">
+            <solid android:color="#33000080"/>
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+
+    <!-- Main card -->
+    <item android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#3A1C6E"
+                android:centerColor="#1A237E"
+                android:endColor="#0D47A1"
+                android:angle="135"
+                android:type="linear"/>
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+
+    <!-- Subtle shine overlay at top -->
+    <item android:bottom="4dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#30FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:angle="90"
+                android:type="linear"/>
+            <corners android:radius="18dp"/>
+        </shape>
+    </item>
+
+</layer-list>

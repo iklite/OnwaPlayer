@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animated-selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/normal" android:drawable="@drawable/btn_gradient_normal"/>
+    <item android:id="@+id/pressed" android:drawable="@drawable/btn_gradient_pressed"
+		android:state_pressed="true"/>
+    <transition
+        android:fromId="@id/normal"
+        android:toId="@id/pressed">
+        <animation-list>
+            <item android:duration="50" android:drawable="@drawable/btn_gradient_normal"/>
+            <item android:duration="50" android:drawable="@drawable/btn_gradient_pressed"/>
+        </animation-list>
+    </transition>
+    <transition
+        android:fromId="@id/pressed"
+        android:toId="@id/normal">
+        <animation-list>
+            <item android:duration="50" android:drawable="@drawable/btn_gradient_pressed"/>
+            <item android:duration="50" android:drawable="@drawable/btn_gradient_normal"/>
+        </animation-list>
+    </transition>
+</animated-selector>

@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="96dp"
+    android:height="96dp"
+    android:viewportWidth="96"
+    android:viewportHeight="96">
+    <!-- Play triangle -->
+    <path
+        android:fillColor="#1E88E5"
+        android:pathData="M34,28 L70,48 L34,68 Z"/>
+    <!-- Star (most played indicator) -->
+    <path
+        android:fillColor="#1E88E5"
+        android:pathData="M72,20 l2.5,7.5 7.5,0.5 -6,5 2,7.5 -6,-4.5 -6,4.5 2,-7.5 -6,-5 7.5,-0.5z"/>
+</vector>

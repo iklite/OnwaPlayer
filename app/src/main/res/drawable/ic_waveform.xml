@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Audio waveform / frequency bars -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M3,12h2v8H3zM7,8h2v12H7zM11,4h2v16h-2zM15,6h2v14h-2zM19,10h2v10h-2z" />
+
+    <!-- Sine wave line across the bars -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1"
+        android:pathData="M3,12 Q6,4 9,12 T15,12 T21,12" />
+</vector>

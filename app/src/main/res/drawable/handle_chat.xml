@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+handle_chat.xml
+─────────────────────
+A four-layer dark-luxury grip-handle drawable.
+
+Layer 1 – deep dark gradient background with rounded top corners.
+Layer 2 – a 2 dp gold shimmer line along the very top edge, giving
+the panel a "lifted" premium feel.
+Layer 3 – a soft inner glow just below the shimmer line.
+Layer 4 – the grip-pill indicator, centred with a warm gold gradient.
+
+API note
+────────
+android:gravity="center" on a <layer-list> <item> requires API 23.
+On API 18–22, layer 4 stretches to full width; the shimmer and
+background still render perfectly on those devices.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+	Layer 1 – main background
+	Deep navy-to-black gradient, rounded top corners only so the
+	panel looks like a floating sheet rising from the bottom.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2A2A42"
+                android:centerColor="#1A1A2E"
+                android:endColor="#0D0D1A"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+	Layer 2 – gold shimmer top-edge (2 dp strip)
+	android:bottom="46dp" on a 40 dp tall view leaves exactly 2 dp
+	at the top.  The horizontal gold-to-white-to-gold gradient
+	reads as a metallic edge highlight.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#7A5C00"
+                android:centerColor="#FFD97D"
+                android:endColor="#7A5C00"
+                android:angle="0" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+	Layer 3 – inner glow wash just below the shimmer
+	A subtle amber-to-transparent gradient that bleeds downward
+	from the shimmer, reinforcing depth without looking flat.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:top="2dp"
+        android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#33C9A84C"
+                android:endColor="#00C9A84C"
+                android:angle="270" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+	Layer 4 – grip pill indicator
+	A warm gold gradient pill centred in the handle strip.
+	· android:gravity="center" centres the <size>-constrained shape
+	horizontally and vertically (API 23+; falls back gracefully).
+	· The gradient goes dark-gold → bright-gold → dark-gold,
+	mimicking a polished metallic bar catching light.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:top="20dp"
+        android:bottom="20dp"
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#8C6400"
+                android:centerColor="#FFD97D"
+                android:endColor="#8C6400"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <!--
+			size only constrains the shape when gravity is active.
+			48 × 5 dp gives a proportioned pill that reads clearly
+			as a drag affordance without dominating the strip.
+            -->
+            <size
+                android:width="48dp"
+                android:height="5dp" />
+        </shape>
+    </item>
+
+</layer-list>

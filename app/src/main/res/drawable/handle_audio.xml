@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- handle_audio.xml  — emerald/green accent (Audio panel) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#0F1E14"
+                android:centerColor="#0A130D"
+                android:endColor="#050906"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <item android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#00491A"
+                android:centerColor="#69F0AE"
+                android:endColor="#00491A"
+                android:angle="0" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <item android:top="2dp" android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2269F0AE"
+                android:endColor="#0069F0AE"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item android:top="20dp" android:bottom="20dp" android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#00491A"
+                android:centerColor="#69F0AE"
+                android:endColor="#00491A"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <size android:width="48dp" android:height="5dp" />
+        </shape>
+    </item>
+</layer-list>

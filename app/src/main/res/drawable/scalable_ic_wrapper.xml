@@ -1,0 +1,39 @@
+<vector
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:aapt="http://schemas.android.com/apk/res-auto"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+
+    <!-- Gradient background to cover edges -->
+    <path
+        android:pathData="M0,0 L48,0 L48,48 L0,48 Z"
+        android:fillColor="@android:color/transparent">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="0"
+                android:startY="0"
+                android:endX="48"
+                android:endY="48"
+                android:startColor="#FFE5B4"
+                android:endColor="#FFB6C1"
+                android:angle="45"/>
+        </aapt:attr>
+    </path>
+
+    <!-- Group scales any bitmap dropped here -->
+    <group
+        android:scaleX="1"
+        android:scaleY="1"
+        android:translateX="0"
+        android:translateY="0">
+
+        <!-- Replace @drawable/my_image with any PNG name -->
+        <bitmap
+            android:src="@drawable/ic_launcher_img"
+            android:gravity="center"
+            android:tileMode="disabled"/>
+    </group>
+</vector>

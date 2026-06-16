@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  fragment_share_playback.xml
+  ───────────────────────────
+  Root: MultiPanelLayout (5 direct children)
+
+  app:dockStyle="tabbed"
+      All four panel handles share a single 48 dp row at the bottom,
+      laid out side-by-side like tabs.  Total dock height = 48 dp.
+      Switch to "stacked" if you prefer the vertically-stacked style
+      (that costs 207 dp of dock height with 4 panels).
+
+  child[0] top_view        — IkVideoView + album art + transport controls
+  child[1] panel_network   — Connectivity, group info, session controls, members
+  child[2] panel_video     — On-device video library list
+  child[3] panel_audio     — On-device audio library list
+  child[4] panel_chat      — Live session chat with @mention support
+
+  Each panel's FIRST child is its handle row (height = 48 dp).
+  In tabbed mode the handle renders inside a W/4-wide tab slot when collapsed
+  and at full width when the panel is expanded.  Keep tab labels short (3-5
+  characters) so they fit comfortably at any screen width.
+-->
+<com.ikechi.studio.onwa.widgets.MultiPanelLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/multi_panel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:dockStyle="tabbed" 
+	app:lockInLandscape="true"
+	app:hideDockedInLandscape="true">
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         child[0]  TOP VIEW  — video / album-art + transport bar
+    ══════════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/top_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#000000">
+
+        <com.ikechi.studio.onwa.widgets.video.IkVideoView
+            android:id="@+id/videoView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:showSeekBar="false" />
+
+        <ImageView
+            android:id="@+id/albumArtView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+
+        <!-- Transport controls -->
+        <LinearLayout
+			android:id="@+id/media_share_transport_controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#CC000000">
+
+			<SeekBar
+				android:id="@+id/seekBar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:max="1000"
+				android:progress="0"
+				android:secondaryProgress="0" 
+				android:progressDrawable="@drawable/slim_gray_seekbar_track"
+				android:thumb="@drawable/oval_white_seekbar_thumb"
+				android:splitTrack="false"
+				android:paddingStart="2dp"
+				android:paddingEnd="2dp"
+				android:layout_marginStart="8dp"
+				android:layout_marginLeft="8dp"
+				android:layout_marginBottom="10dp"/>
+			
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingBottom="6dp">
+
+                <ImageButton
+                    android:id="@+id/btnPlayPause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/ic_media_play"
+                    android:minWidth="40dp"
+					android:background="@drawable/circle_background"/>
+
+				<ImageButton
+                    android:id="@+id/btnPlayNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:src="@android:drawable/ic_media_next"
+                    android:minWidth="40dp" 
+					android:layout_marginStart="2dp" 
+					android:layout_marginLeft="2dp"
+					android:background="@drawable/circle_background"/>
+				
+                <TextView
+                    android:id="@+id/tvCurrentMedia"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="#CCFFFFFF"
+                    android:textSize="11sp"
+                    android:ellipsize="marquee"
+                    android:singleLine="true"
+                    android:marqueeRepeatLimit="marquee_forever"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:text="No media selected"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <TextView
+                    android:id="@+id/tvPosition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#88FFFFFF"
+                    android:textSize="11sp"
+                    android:text="0:00 / 0:00" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+	<!-- ══════════════════════════════════════════════════════════════════════
+	child[1]  PANEL 0  — Network / Connectivity
+    ══════════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/panel_network"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--
+		Handle — FIRST child, 48 dp.
+		In tabbed mode this is W/4 wide when collapsed.
+		Two-line layout: bold label on top, live status below.
+		Orientation is vertical + gravity center so both lines
+		remain centred inside the narrow tab slot.
+        -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/handle_connectivity">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="NET"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:letterSpacing="0.10" />
+
+            <TextView
+                android:id="@+id/tvNetStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Offline"
+                android:textColor="#AAFFFFFF"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <!-- Panel body (scrollable) -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0D0D1A"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/tvGroupName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="No active session"
+                        android:textColor="#FFD97D"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvRole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="#88FFFFFF"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvNetQuality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="12sp"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnStartHost"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Start Hosting"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnJoinSession"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Join a Session"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnDisconnect"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Disconnect"
+                    android:visibility="gone"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnRetry"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Retry Connection"
+                    android:visibility="gone"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:layout_marginBottom="16dp" />
+
+                <Button
+                    android:id="@+id/btnDownload"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Download Current Media"
+                    android:visibility="gone"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:layout_marginBottom="16dp" />
+
+                <ProgressBar
+                    android:id="@+id/downloadProgress"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:visibility="gone"
+                    android:layout_marginBottom="4dp" />
+
+                <TextView
+                    android:id="@+id/tvDownloadStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#88FFFFFF"
+                    android:textSize="11sp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- ═══════════════════════════════════════════════════════════════
+				SHARED MEDIA SECTION — Shows all members' media
+                ═══════════════════════════════════════════════════════════════════ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="SHARED MEDIA"
+                        android:textColor="#FFD97D"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.12" />
+
+                    <TextView
+                        android:id="@+id/tvNetworkMediaCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 items"
+                        android:textColor="#88FFFFFF"
+                        android:textSize="10sp" />
+                </LinearLayout>
+
+                <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+                    android:id="@+id/networkMediaList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="120dp"
+                    android:maxHeight="200dp"
+                    android:background="#1A1A2E"
+                    android:layout_marginBottom="16dp" />
+
+                <!-- ═══════════════════════════════════════════════════════════════
+				MEMBERS SECTION
+                ═══════════════════════════════════════════════════════════════════ -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="MEMBERS"
+                    android:textColor="#FFD97D"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.12"
+                    android:layout_marginBottom="8dp" />
+
+                <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+                    android:id="@+id/membersList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="60dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+	
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         child[2]  PANEL 1  — Video library
+    ══════════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/panel_videos"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/handle_video">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VIDEO"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:letterSpacing="0.10" />
+
+            <TextView
+                android:id="@+id/tvVideoCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="…"
+                android:textColor="#AAFFFFFF"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+            android:id="@+id/videoList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+			app:rv_orientation="vertical"
+            android:background="#0D0D1A" />
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         child[3]  PANEL 2  — Audio library
+    ══════════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/panel_audio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/handle_audio">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AUDIO"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:letterSpacing="0.10" />
+
+            <TextView
+                android:id="@+id/tvAudioCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="…"
+                android:textColor="#AAFFFFFF"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+            android:id="@+id/audioList"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0D0D1A"
+			app:rv_orientation="vertical"/>
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         child[4]  PANEL 3  — Chat
+    ══════════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/panel_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/handle_chat">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CHAT"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="11sp"
+                android:letterSpacing="0.10" />
+
+            <TextView
+                android:id="@+id/tvUnreadCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#FFD97D"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/chat_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="#0D0D1A" />
+    </LinearLayout>
+
+</com.ikechi.studio.onwa.widgets.MultiPanelLayout>

@@ -1,0 +1,775 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/settings_card_background_light"
+    android:fillViewport="true"
+    android:padding="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             VISUALIZER SETTINGS
+             ═══════════════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_settings_card"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VISUALIZER SETTINGS"
+                android:textColor="@color/primary_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                android:letterSpacing="0.05" />
+
+            <!-- Visualizer Style -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tv_visualizer_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visualizer Style"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_visualizer_style"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/spinner_background"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Color Scheme -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tv_color_scheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Color Scheme"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_color_scheme"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/spinner_background"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Performance Level -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:id="@+id/tv_performance_level"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Performance Level"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_performance_level"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/spinner_background"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Sensitivity -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Sensitivity"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_sensitivity_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.50"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_sensitivity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="40"
+                    android:progress="30"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Bar Count -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Bar Count"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_bar_count_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="64"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_bar_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="120"
+                    android:progress="56"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Rotation Speed -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Rotation Speed"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_rotation_speed_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.50"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_rotation_speed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="25"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Particle Count -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Particle Count"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_particle_count_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="500"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_particle_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="50"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Glass Ball Count -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Glass Ball Count"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_glass_ball_count_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="15"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_glass_ball_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="50"
+                    android:progress="15"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Style Rotation Interval -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Cycle Interval"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_style_rotation_interval_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 seconds"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_style_rotation_interval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="120"
+                    android:progress="10"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Beat Decay Rate -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Beat Decay Rate"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_beat_decay_rate_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.85"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_beat_decay_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="100"
+                    android:progress="85"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb" />
+            </LinearLayout>
+
+            <!-- Visualizer Checkboxes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="8dp">
+
+                <CheckBox
+                    android:id="@+id/check_wireframe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Wireframe Mode"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_use_vbo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use VBO"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_use_lighting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Use Lighting"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_auto_rotate_styles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Auto Cycle Styles"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_touch_interaction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Touch Interaction"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_show_beat_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show Beat Indicator"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary_color" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             PLAYER SETTINGS
+             ═══════════════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_settings_card"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PLAYER SETTINGS"
+                android:textColor="@color/primary_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                android:letterSpacing="0.05" />
+
+            <!-- Player Checkboxes -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <CheckBox
+                    android:id="@+id/check_auto_play"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Auto Play"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_gapless_playback"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Gapless Playback"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_crossfade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Crossfade"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_keep_screen_on"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keep Screen On"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_high_quality_audio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="High Quality Audio"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_real_time_processing"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Real Time Processing"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:buttonTint="@color/primary_color" />
+
+                <CheckBox
+                    android:id="@+id/check_show_no_media_files"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Show Hidden Media Folders"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:buttonTint="@color/primary_color" />
+
+            </LinearLayout>
+
+            <!-- Default Tab -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Default Tab"
+                    android:textColor="@color/text_primary"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_default_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/spinner_background"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+
+            <!-- Crossfade Duration -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Crossfade Duration"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_crossfade_duration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3 seconds"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_crossfade_duration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="10"
+                    android:progress="3"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp" />
+            </LinearLayout>
+
+            <!-- Visualizer Update Rate -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Visualizer Update Rate"
+                        android:textColor="@color/text_primary"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/tv_visualizer_update_rate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="60 FPS"
+                        android:textColor="@color/primary_color"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:minWidth="40dp"
+                        android:gravity="end" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekbar_visualizer_update_rate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:max="24"
+                    android:progress="6"
+                    android:progressDrawable="@drawable/seekbar_progress"
+                    android:thumb="@drawable/seekbar_thumb"
+                    android:paddingStart="4dp"
+                    android:paddingEnd="4dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+             OTHER SETTINGS
+             ═══════════════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_settings_card"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="OTHER SETTINGS"
+                android:textColor="@color/primary_color"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="24dp"
+                android:letterSpacing="0.05" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_clear_cache"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Clear Cache"
+                    android:background="@drawable/button_settings"
+                    android:textColor="@color/button_text"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:stateListAnimator="@null" />
+
+                <Button
+                    android:id="@+id/btn_reset_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Reset to Defaults"
+                    android:background="@drawable/button_settings"
+                    android:textColor="@color/button_text"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:stateListAnimator="@null" />
+
+                <Button
+                    android:id="@+id/btn_export_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Export Settings"
+                    android:background="@drawable/button_settings"
+                    android:textColor="@color/button_text"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="12dp"
+                    android:stateListAnimator="@null" />
+
+                <Button
+                    android:id="@+id/btn_import_settings"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="Import Settings"
+                    android:background="@drawable/button_settings"
+                    android:textColor="@color/button_text"
+                    android:textSize="14sp"
+                    android:stateListAnimator="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

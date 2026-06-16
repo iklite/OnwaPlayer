@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- handle_video.xml  — violet/purple accent (Video panel) -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#1E1A2E"
+                android:centerColor="#130F1F"
+                android:endColor="#08060F"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <item android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#4A0072"
+                android:centerColor="#CE93D8"
+                android:endColor="#4A0072"
+                android:angle="0" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <item android:top="2dp" android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#22CE93D8"
+                android:endColor="#00CE93D8"
+                android:angle="270" />
+        </shape>
+    </item>
+    <item android:top="20dp" android:bottom="20dp" android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#4A0072"
+                android:centerColor="#CE93D8"
+                android:endColor="#4A0072"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <size android:width="48dp" android:height="5dp" />
+        </shape>
+    </item>
+</layer-list>

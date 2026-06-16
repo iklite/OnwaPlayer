@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/window_background">
+
+    <!-- GridView for videos -->
+    <GridView
+        android:id="@+id/video_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="2"
+        android:columnWidth="160dp"
+        android:stretchMode="columnWidth"
+        android:horizontalSpacing="8dp"
+        android:verticalSpacing="8dp"
+        android:padding="8dp"
+		android:clickable="true"
+        android:clipToPadding="false"
+        android:scrollbars="none" />
+
+    <!-- Progress bar (shown while loading) -->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone" />
+
+    <!-- Empty state message -->
+    <TextView
+        android:id="@+id/empty_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_videos_found"
+        android:textSize="18sp"
+        android:textColor="@color/text_secondary"
+        android:visibility="gone" />
+
+</FrameLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/dialog_background_rounded">
+
+    <!-- Icon (Optional - Uncomment if you want an icon)
+    <ImageView
+	android:layout_width="60dp"
+	android:layout_height="60dp"
+	android:layout_gravity="center"
+	android:layout_marginBottom="16dp"
+	android:src="@drawable/ic_dialog_info"
+	android:alpha="0.9" />
+    -->
+
+    <!-- Title -->
+    <TextView
+		android:id="@+id/tv_dialog_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Notice"
+        android:textSize="20sp"
+        android:textColor="#FFAAAFFF"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog message goes here"
+        android:textSize="16sp"
+        android:textColor="#FF663366"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="0dp" />
+
+    <!-- Buttons Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Negative Button -->
+        <Button
+            android:id="@+id/btn_dialog_negative"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_dialog_negative"
+            android:text="Cancel"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
+
+        <!-- Vertical Divider -->
+        <View
+            android:id="@+id/divider_vertical"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E0E0E0" />
+
+        <!-- Positive Button -->
+        <Button
+            android:id="@+id/btn_dialog_positive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/button_dialog_positive"
+            android:text="OK"
+            android:textColor="#2196F3"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

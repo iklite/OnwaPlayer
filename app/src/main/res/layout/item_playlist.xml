@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+item_playlist.xml
+─────────────────
+Single row for a user-created playlist in the RecyclingView.
+- Click to open playlist tracks
+- Long-click for rename / delete options
+-->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@drawable/bg_playlist_item"
+    android:padding="10dp"
+    android:descendantFocusability="blocksDescendants"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Playlist icon / thumbnail -->
+    <FrameLayout
+        android:id="@+id/framePlaylistIcon"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:background="@drawable/bg_playlist_icon"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:id="@+id/imgPlaylistIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_media_play"
+            android:scaleType="centerInside"
+            android:contentDescription="Playlist icon"/>
+    </FrameLayout>
+
+    <!-- Track count badge -->
+    <TextView
+        android:id="@+id/tvPlaylistTrackCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/framePlaylistIcon"
+        android:layout_alignRight="@id/framePlaylistIcon"
+        android:layout_marginTop="-4dp"
+        android:layout_marginRight="-4dp"
+        android:background="#F5A623"
+        android:textColor="#0A0A12"
+        android:textSize="9sp"
+        android:textStyle="bold"
+        android:paddingLeft="4dp"
+        android:paddingRight="4dp"
+        android:paddingTop="1dp"
+        android:paddingBottom="1dp"
+        android:text="0"/>
+
+    <!-- Chevron -->
+    <ImageView
+        android:id="@+id/imgChevron"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@android:drawable/ic_media_next"
+        android:scaleType="fitCenter"
+        android:contentDescription="Open playlist"/>
+
+    <!-- Playlist name + subtitle -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/framePlaylistIcon"
+        android:layout_toLeftOf="@id/imgChevron"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="8dp">
+
+        <TextView
+            android:id="@+id/tvPlaylistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Playlist"
+            android:textColor="#F0F0FF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:singleLine="true"
+            android:ellipsize="end"/>
+
+        <TextView
+            android:id="@+id/tvPlaylistSubtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0 songs"
+            android:textColor="#80A0B0C8"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp"
+            android:singleLine="true"/>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Three stacked cards representing cover-flow carousel -->
+    <!-- Back card (smallest, far left) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.4"
+        android:pathData="M4,6h10v12H4V6z" />
+
+    <!-- Middle card -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.7"
+        android:pathData="M7,4h10v14H7V4z" />
+
+    <!-- Front card (largest, centered) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M10,2h10v16H10V2z" />
+
+    <!-- Small lines on front card indicating content -->
+    <path
+        android:fillColor="#000000"
+        android:fillAlpha="0.2"
+        android:pathData="M12,7h6v1h-6zM12,9h5v1h-5zM12,11h6v1h-6z" />
+</vector>

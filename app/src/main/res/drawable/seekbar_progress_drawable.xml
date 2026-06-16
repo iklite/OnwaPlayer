@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background track -->
+    <item android:id="@android:id/background"
+        android:drawable="@drawable/seekbar_track"/>
+
+    <!-- Secondary progress (buffered) -->
+    <item android:id="@android:id/secondaryProgress"
+        android:drawable="@drawable/seekbar_secondary"/>
+
+    <!-- Primary progress (played) -->
+    <item android:id="@android:id/progress"
+        android:drawable="@drawable/seekbar_neon_progress"/>
+</layer-list>

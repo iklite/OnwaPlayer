@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+handle_playlist.xml
+─────────────────────
+A four-layer dark-luxury grip-handle drawable for the Playlists panel.
+
+Layer 1 – deep dark gradient background with rounded top corners.
+Layer 2 – a 2 dp warm amber shimmer line along the very top edge.
+Layer 3 – a soft inner glow just below the shimmer line.
+Layer 4 – the grip-pill indicator, centred with a warm amber gradient.
+
+API note
+────────
+android:gravity="center" on a <layer-list> <item> requires API 23.
+On API 18–22, layer 4 stretches to full width; the shimmer and
+background still render perfectly on those devices.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ═══════════════════════════════════════════════════════════════
+    Layer 1 – main background
+    Deep warm charcoal-to-black gradient with a subtle amber undertone,
+    rounded top corners so the panel looks like a floating sheet.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2E2A22"
+                android:centerColor="#1E1C18"
+                android:endColor="#0F0E0C"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+    Layer 2 – amber shimmer top-edge (2 dp strip)
+    A horizontal amber-to-gold-to-amber gradient that reads as a
+    metallic edge highlight, warmer than the chat version.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#8B6914"
+                android:centerColor="#F5A623"
+                android:endColor="#8B6914"
+                android:angle="0" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+    Layer 3 – inner amber glow wash just below the shimmer
+    A subtle amber-to-transparent gradient that bleeds downward
+    from the shimmer, reinforcing depth.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:top="2dp"
+        android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#33D4A020"
+                android:endColor="#00D4A020"
+                android:angle="270" />
+        </shape>
+    </item>
+
+    <!-- ═══════════════════════════════════════════════════════════════
+    Layer 4 – grip pill indicator
+    A warm amber gradient pill centred in the handle strip.
+    · android:gravity="center" centres the <size>-constrained shape
+	horizontally and vertically (API 23+; falls back gracefully).
+    · The gradient goes deep-amber → bright-amber → deep-amber,
+	mimicking a polished metallic bar catching warm light.
+    ═══════════════════════════════════════════════════════════════ -->
+    <item
+        android:top="20dp"
+        android:bottom="20dp"
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#8B6914"
+                android:centerColor="#F5A623"
+                android:endColor="#8B6914"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <size
+                android:width="48dp"
+                android:height="5dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application dark theme -->
+    <style name="AppTheme"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <!-- Primary brand colors -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryVariant">@color/primary_dark</item>
+        <item name="colorOnPrimary">@color/text_on_primary</item>
+        <item name="colorSecondary">@color/accent</item>
+        <item name="colorOnSecondary">@color/text_on_primary</item>
+
+        <!-- Optional compatibility -->
+        <item name="colorAccent">@color/accent</item>
+
+        <!-- Surface / Background -->
+        <item name="android:colorBackground">#1E1E1E</item>
+        <item name="colorSurface">#2A2A2A</item>
+        <item name="colorOnSurface">#FFFFFF</item>
+        <item name="colorOnBackground">#FFFFFF</item>
+
+        <!-- Window -->
+        <item name="android:windowBackground">@color/triadic_primary</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!-- System bars -->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+
+        <!-- Text appearances (Material) -->
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6</item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <!-- Dividers -->
+        <item name="android:listDivider">@color/list_divider</item>
+        <item name="android:divider">@color/divider</item>
+
+        <!-- Hardware acceleration -->
+        <item name="android:hardwareAccelerated">true</item>
+
+    </style>
+
+    <!-- Splash screen theme -->
+    <style name="SplashTheme"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="android:windowBackground">@drawable/app_portrait_img</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+    </style>
+
+    <!-- Search EditText style -->
+    <style name="SearchEditTextStyle">
+
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textColorHint">@color/text_secondary</item>
+        <item name="android:paddingStart">48dp</item>
+        <item name="android:drawablePadding">12dp</item>
+
+    </style>
+
+    <!-- Dialog theme -->
+    <style name="CustomDialog"
+        parent="Theme.MaterialComponents.DayNight.Dialog">
+
+        <item name="android:windowBackground">@color/dialog_background</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+
+    </style>
+
+    <!-- Stats label -->
+    <style name="StatsLabel">
+
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text_secondary</item>
+        <item name="android:layout_marginTop">12dp</item>
+
+    </style>
+
+    <!-- Stats value -->
+    <style name="StatsValue">
+
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:layout_marginBottom">4dp</item>
+
+    </style>
+
+</resources>

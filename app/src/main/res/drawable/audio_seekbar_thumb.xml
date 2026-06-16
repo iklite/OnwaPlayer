@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- Make the thumb slightly bigger than the track -->
+    <size
+        android:width="16dp"
+        android:height="16dp" />
+    <!-- Dark-sky blue -->
+    <solid android:color="#FF00BFFF" />
+</shape>

@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    ══════════════════════════════════════════════════════════════════
+    fragment_library.xml  —  Onwa Media Player · Library Screen
+    ══════════════════════════════════════════════════════════════════
+
+    THEME:  Dark luxury music — near-black bg, vivid gradient cards,
+            warm gold (#F5A623) as the accent throughout.
+
+    CLICK HOOKS  (all exposed via android:onClick):
+      · onAllSongsClick        → All Songs card
+      · onMostPlayedClick      → Most Played card
+      · onRecentlyAddedClick   → Recently Added card
+      · onFavoritesClick       → Favorites card
+      · onAddPlaylistClick     → ImageButton with "+" icon
+
+    LONG-CLICK HOOK:
+      · listViewPlaylists      → set adapter's onItemLongClickListener
+                                 in code to trigger delete dialog.
+
+    PLAYLIST LIST:
+      · listViewPlaylists      → populate via your PlaylistAdapter;
+                                 android:nestedScrollingEnabled="false"
+                                 lets the outer ScrollView own scrolling.
+    ══════════════════════════════════════════════════════════════════
+-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app_main"
+    android:scrollbars="none"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  TOP HEADER                                            -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:paddingLeft="22dp"
+            android:paddingRight="22dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp">
+
+            <!-- App wordmark / screen title -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Music Library"
+                    android:textColor="#FFFFFF"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.02"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="What are we playing today?"
+                    android:textColor="#80B0B8D0"
+                    android:textSize="12sp"
+                    android:layout_marginTop="1dp"/>
+
+            </LinearLayout>
+
+            <!-- Search icon button --> 
+			<!-- Set color filter programatically -->
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:background="#201A3050"
+                android:src="@android:drawable/ic_menu_search"
+                android:scaleType="centerInside"
+                android:contentDescription="Search"
+                android:onClick="onSearchClick"/>
+
+        </RelativeLayout>
+
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  GOLD SECTION DIVIDER                                  -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:background="@drawable/divider_gold"/>
+
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  SECTION LABEL : BROWSE                               -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BROWSE"
+            android:textColor="#F5A623"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.18"
+            android:layout_marginLeft="22dp"
+            android:layout_marginTop="22dp"
+            android:layout_marginBottom="14dp"/>
+
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  GALLERY GRID  —  ROW 1 : All Songs | Most Played     -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:weightSum="2">
+
+            <!-- ▌ CARD : All Songs ▐ -->
+            <FrameLayout
+                android:id="@+id/cardAllSongs"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_card_all_songs"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onAllSongsClick">
+
+                <!-- Decorative large circle accent (top-right) -->
+                <View
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#18FFFFFF"
+                    android:layout_gravity="top|right"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginRight="-20dp"/>
+
+                <!-- Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="bottom">
+
+                    <!-- Icon --> 
+					<!-- Set color filter programatically -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_media_play"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="All Songs"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="All Songs"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvAllSongsCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 tracks"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <!-- ▌ CARD : Most Played ▐ -->
+            <FrameLayout
+                android:id="@+id/cardMostPlayed"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_card_most_played"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onMostPlayedClick">
+
+                <!-- Decorative circle -->
+                <View
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#18FFFFFF"
+                    android:layout_gravity="top|right"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginRight="-20dp"/>
+
+                <!-- Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="bottom">
+
+					<!-- Set color filter programatically -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_sort_by_size"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Most Played"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Most Played"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvMostPlayedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 tracks"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  GALLERY GRID  —  ROW 2 : Recently Added | Favorites  -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="14dp"
+            android:paddingRight="14dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="2">
+
+            <!-- ▌ CARD : Recently Added ▐ -->
+            <FrameLayout
+                android:id="@+id/cardRecentlyAdded"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_card_recently_added"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onRecentlyAddedClick">
+
+                <!-- Decorative circle -->
+                <View
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#18FFFFFF"
+                    android:layout_gravity="top|right"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginRight="-20dp"/>
+
+                <!-- Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="bottom">
+
+					<!-- Set color filter programatically -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@android:drawable/ic_menu_recent_history"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Recently Added"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Recently Added"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvRecentlyAddedCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 tracks"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+
+            <!-- ▌ CARD : Favorites ▐ -->
+            <FrameLayout
+                android:id="@+id/cardFavorites"
+                android:layout_width="0dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/bg_card_favorites"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="onFavoritesClick">
+
+                <!-- Decorative circle -->
+                <View
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="#18FFFFFF"
+                    android:layout_gravity="top|right"
+                    android:layout_marginTop="-20dp"
+                    android:layout_marginRight="-20dp"/>
+
+                <!-- Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:gravity="bottom">
+
+					<!-- Set color filter programatically -->
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_favorite"
+						android:background="?android:attr/selectableItemBackgroundBorderless"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Favorites"
+                        android:layout_marginBottom="10dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Favorites"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/tvFavoritesCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0 tracks"
+                        android:textColor="#99FFFFFF"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp"/>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+        <!-- ══════════════════════════════════════════════════════ -->
+        <!--  PLAYLISTS SECTION                                     -->
+        <!-- ══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="22dp"
+            android:layout_marginRight="22dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/bg_playlist_panel"
+            android:padding="16dp">
+
+            <!-- Section header row: label + add button -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="44dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PLAYLISTS"
+                        android:textColor="#F5A623"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="0.18"/>
+
+                    <TextView
+                        android:id="@+id/tvPlaylistSectionSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Long-press a playlist to delete"
+                        android:textColor="#50A0B0C8"
+                        android:textSize="10sp"
+                        android:layout_marginTop="1dp"/>
+
+                </LinearLayout>
+
+                <!-- ╔═════════════════════════════╗ -->
+                <!-- ║   ADD PLAYLIST  (+) BUTTON  ║ -->
+                <!-- ╚═════════════════════════════╝ --> 
+				<!-- Set color filter programatically -->
+                <ImageButton
+                    android:id="@+id/btnAddPlaylist"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:background="@drawable/bg_btn_add_playlist"
+                    android:src="@android:drawable/ic_input_add"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Add new playlist"
+                    android:onClick="onAddPlaylistClick"/>
+
+            </RelativeLayout>
+
+
+            <!-- Gold divider between header and list -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/divider_gold"/>
+
+
+            <!-- ════════════════════════════════════════════════ -->
+            <!--  Empty-state message (shown when list is empty)  -->
+            <!-- ════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/layoutPlaylistEmpty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:paddingTop="24dp"
+                android:paddingBottom="24dp"
+                android:visibility="visible">
+
+				<!-- Set color filter programatically -->
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@android:drawable/ic_menu_add"
+                    android:scaleType="fitCenter"
+                    android:contentDescription="No playlists yet"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No playlists yet"
+                    android:textColor="#50A0B0C8"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap + to create your first playlist"
+                    android:textColor="#35A0B0C8"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+
+            <!-- ════════════════════════════════════════════════ -->
+            <!--  PLAYLIST LIST VIEW                              -->
+            <!--                                                  -->
+            <!--  Populated by PlaylistAdapter in code.           -->
+            <!--  onItemLongClickListener → prompt delete dialog  -->
+            <!--  Height is set dynamically via a utility method  -->
+            <!--  (ListView inside ScrollView needs fixed height  -->
+            <!--   or use the setListViewHeightBasedOnItems()     -->
+            <!--   helper after notifyDataSetChanged()).           -->
+            <!-- ════════════════════════════════════════════════ -->
+            <ListView
+                android:id="@+id/listViewPlaylists"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@drawable/divider_gold"
+                android:dividerHeight="8dp"
+                android:listSelector="@android:color/transparent"
+                android:scrollbars="none"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+
+        <!-- Bottom breathing room -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+    </LinearLayout>
+
+</ScrollView>

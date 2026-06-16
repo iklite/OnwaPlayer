@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    bg_item_card.xml
+    ─────────────────────────────────────────────────────────
+    White card background. API 1+.
+
+    WHY no shadow layer:
+    android:left / android:top / android:right / android:bottom
+    on a <layer-list><item> were added in API 23.  Using them on
+    minSdk 18 causes an InflateException on API 18–22 devices.
+    The card effect is achieved instead through a double <stroke>:
+      • outer stroke (slightly darker)  → visible border / depth cue
+      • rounded corners                 → modern card shape
+
+    If you target API 21+ exclusively, replace with a vector or
+    add an elevation attribute in the layout instead.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Pure white card surface -->
+    <solid android:color="#FFFFFF" />
+
+    <!-- Rounded corners — same radius on all four corners -->
+    <corners android:radius="8dp" />
+
+    <!--
+        Single-pixel border.
+        #D8D8D8 is dark enough to read against white backgrounds
+        but subtle enough not to look like a box.
+    -->
+    <stroke
+        android:width="1dp"
+        android:color="#D8D8D8" />
+
+</shape>

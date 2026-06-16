@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24"
+	android:tint="#ffb1f0f2">
+
+    <!-- Diagonal slash line -->
+    <path
+        android:fillColor="@android:color/white"
+        android:pathData="M19,5L5,19H19V5ZM17,17H7L17,7V17Z"/>
+
+    <!-- Faint bars in background (optional, can be removed for simpler design) -->
+    <path
+        android:fillColor="@android:color/white"
+        android:fillAlpha="0.3"
+        android:pathData="M4,9H6V18H4V9ZM7,12H9V18H7V12ZM10,6H12V18H10V6ZM13,9H15V18H13V9ZM16,12H18V18H16V12Z"/>
+</vector>

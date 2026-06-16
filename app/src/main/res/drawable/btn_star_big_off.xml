@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    btn_star_big_off.xml
+    ─────────────────────────────────────────────────────────
+    "Star — unselected" drawable. API 1+.
+
+    TECHNIQUE — 6-point star from three rotated rectangles:
+    A 6-point star (hexagram) is the most accurate star shape
+    achievable in pure <shape> XML without a <vector> element.
+    Three thin rectangles, each rotated 60° from the previous,
+    cross at the centre to form the six points.
+
+    Layer breakdown:
+      1. Background circle      — light grey, gives the button
+                                  a tappable hit-area feel.
+      2. Rectangle  at   0°    — vertical bar through centre.
+      3. Rectangle  at  60°    — first diagonal.
+      4. Rectangle  at 120°    — second diagonal.
+      5. Centre circle          — same colour as background,
+                                  punched over the crossing
+                                  point to hollow out the star
+                                  and make it look like an
+                                  outline rather than solid.
+
+    Colour: #FFC107 (amber) — universally recognised "star" colour.
+    Off-state: centre punch-out uses the card background colour
+               (#FFFFFF) so the star looks hollow / unselected.
+
+    NOTE: <rotate> wraps a <shape> — this IS supported from API 1.
+    Do NOT confuse with android:fromDegrees on <animated-rotate>,
+    which has different semantics.  The static <rotate> drawable
+    is available since API 1.
+-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- ── Layer 1: soft grey circular background ──────────────── -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#F5F5F5" />
+            <stroke
+                android:width="1dp"
+                android:color="#E0E0E0" />
+            <size
+                android:width="40dp"
+                android:height="40dp" />
+        </shape>
+    </item>
+
+    <!-- ── Layer 2: vertical bar (0°) ──────────────────────────── -->
+    <item>
+        <rotate
+            android:fromDegrees="0"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFC107" />
+                <size
+                    android:width="8dp"
+                    android:height="36dp" />
+                <corners android:radius="2dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- ── Layer 3: diagonal bar (60°) ─────────────────────────── -->
+    <item>
+        <rotate
+            android:fromDegrees="60"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFC107" />
+                <size
+                    android:width="8dp"
+                    android:height="36dp" />
+                <corners android:radius="2dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- ── Layer 4: diagonal bar (120°) ────────────────────────── -->
+    <item>
+        <rotate
+            android:fromDegrees="120"
+            android:pivotX="50%"
+            android:pivotY="50%">
+            <shape android:shape="rectangle">
+                <solid android:color="#FFC107" />
+                <size
+                    android:width="8dp"
+                    android:height="36dp" />
+                <corners android:radius="2dp" />
+            </shape>
+        </rotate>
+    </item>
+
+    <!-- ── Layer 5: centre punch-out → hollow / outline effect ─── -->
+    <item>
+        <shape android:shape="oval">
+            <!--
+                Match the card surface colour (#FFFFFF) so the star
+                appears as an outline against the card background.
+                If your item rows have a non-white background, update
+                this colour to match.
+            -->
+            <solid android:color="#FFFFFF" />
+            <size
+                android:width="20dp"
+                android:height="20dp" />
+        </shape>
+    </item>
+
+</layer-list>

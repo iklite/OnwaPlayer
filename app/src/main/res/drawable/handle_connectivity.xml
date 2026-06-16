@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#1A2E2E"
+                android:centerColor="#0D1F1F"
+                android:endColor="#060F0F"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <!-- Teal shimmer top edge (2 dp) -->
+    <item android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#00575F"
+                android:centerColor="#00BCD4"
+                android:endColor="#00575F"
+                android:angle="0" />
+            <corners android:topLeftRadius="22dp" android:topRightRadius="22dp" />
+        </shape>
+    </item>
+    <!-- Inner glow -->
+    <item android:top="2dp" android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#2200BCD4"
+                android:endColor="#0000BCD4"
+                android:angle="270" />
+        </shape>
+    </item>
+    <!-- Grip pill -->
+    <item android:top="20dp" android:bottom="20dp" android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#005F6B"
+                android:centerColor="#00BCD4"
+                android:endColor="#005F6B"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <size android:width="48dp" android:height="5dp" />
+        </shape>
+    </item>
+</layer-list>

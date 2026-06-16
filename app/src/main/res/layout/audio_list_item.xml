@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:orientation="horizontal"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center_vertical"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <!-- Album Art ImageView -->
+    <ImageView
+        android:id="@+id/item_album_art"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:scaleType="centerCrop"
+        android:importantForAccessibility="no"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/default_album_art" />
+
+    <!-- Text Information Container -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:paddingVertical="4dp">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Song Title"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="0dp" />
+
+        <!-- Artist -->
+        <TextView
+            android:id="@+id/item_artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Artist Name"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="0dp"
+            android:layout_marginTop="2dp" />
+
+    </LinearLayout>
+
+    <!-- More Options Button -->
+    <ImageButton
+        android:id="@+id/item_more"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_more_vert"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:contentDescription="More options"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="visible"
+        android:layout_marginStart="8dp" />
+
+</LinearLayout>

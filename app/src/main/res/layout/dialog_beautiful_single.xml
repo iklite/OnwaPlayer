@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/dialog_background_rounded">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Notice"
+        android:textSize="20sp"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Message -->
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog message goes here"
+        android:textSize="16sp"
+        android:textColor="#666666"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0"
+        android:layout_marginBottom="0dp" />
+
+    <!-- Single Centered Button -->
+    <Button
+        android:id="@+id/btn_dialog_single"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_dialog_single"
+        android:text="OK"
+        android:textColor="#2196F3"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp" />
+
+</LinearLayout>

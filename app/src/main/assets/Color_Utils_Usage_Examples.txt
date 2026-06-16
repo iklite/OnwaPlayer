@@ -1,0 +1,186 @@
+
+
+// 1. Get material colors
+int primaryColor = ColorPalette.MATERIAL_COLORS.get(5); // Material Blue
+int redShade = ColorPalette.MATERIAL_RED_SHADES.get(6); // Red 600
+
+// 2. Get semantic colors
+int successColor = ColorPalette.SEMANTIC_COLORS.get("Success");
+int errorColor = ColorPalette.SEMANTIC_COLORS.get("Error");
+
+// 3. Get a gradient set
+List<Integer> sunsetGradient = ColorPalette.getGradientSet("Sunset");
+
+// 4. Generate a custom gradient
+List<Integer> customGradient = ColorPalette.generateGradient(
+    ColorPalette.MATERIAL_COLORS.get(0),
+    ColorPalette.MATERIAL_COLORS.get(5),
+    7
+);
+
+// 5. Color manipulation
+int buttonColor = Color.parseColor("#4CAF50");
+int darkenedButton = ColorUtils.darken(buttonColor, 0.7f);
+int buttonWithAlpha = ColorUtils.withAlpha(buttonColor, 128);
+String hexCode = ColorUtils.toHex(buttonColor); // Returns "#4CAF50"
+
+// 6. Check contrast
+boolean goodContrast = ColorUtils.meetsContrastAA(
+    Color.WHITE, 
+    Color.parseColor("#4CAF50")
+);
+
+// 7. Create a gradient
+GradientBuilder.GradientSpec gradient = GradientBuilder.createSunsetGradient();
+
+// 8. Use a color theme
+ColorTheme theme = ColorTheme.createMaterialBlueTheme();
+ColorTheme darkTheme = theme.toDarkTheme();
+
+// 9. Get random colors
+int randomColor = ColorPalette.getRandomMaterialColor();
+List<Integer> randomGradient = ColorPalette.getRandomGradientSet();
+
+// 10. Create a gradient for a button
+int[] gradientColors = ColorPalette.createLinearGradientColors(
+    ColorPalette.MATERIAL_COLORS.get(0),
+    ColorPalette.MATERIAL_COLORS.get(5)
+);
+
+
+import android.graphics.drawable.GradientDrawable;
+
+public class GradientHelper {
+    
+    public static GradientDrawable createLinearGradientDrawable(int startColor, int endColor, int angle) {
+        GradientDrawable gradient = new GradientDrawable(
+            GradientDrawable.Orientation.TL_BR,
+            new int[]{startColor, endColor}
+        );
+        gradient.setGradientType(GradientDrawable.LINEAR_GRADIENT);
+        gradient.setGradientCenter(0.5f, 0.5f);
+        return gradient;
+    }
+    
+    public static GradientDrawable createSunsetGradientDrawable(int cornerRadius) {
+        List<Integer> colors = ColorPalette.getGradientSet("Sunset");
+        GradientDrawable gradient = new GradientDrawable(
+            GradientDrawable.Orientation.TL_BR,
+            colors.stream().mapToInt(i -> i).toArray()
+        );
+        gradient.setCornerRadius(cornerRadius);
+        return gradient;
+    }
+    
+    public static GradientDrawable createButtonGradient(int color, boolean isPressed) {
+        int baseColor = isPressed ? 
+            ColorUtils.darken(color, 0.8f) : 
+            color;
+        int edgeColor = isPressed ? 
+            ColorUtils.darken(color, 0.6f) : 
+            ColorUtils.lighten(color, 1.2f);
+        
+        GradientDrawable gradient = new GradientDrawable(
+            GradientDrawable.Orientation.TOP_BOTTOM,
+            new int[]{baseColor, edgeColor}
+        );
+        gradient.setCornerRadius(12);
+        gradient.setStroke(2, ColorUtils.darken(color, 0.3f));
+        
+        return gradient;
+    }
+} 
+
+###########################
+
+The **other classes do NOT need any code changes** — they already handle the new behavior correctly. Here's exactly why, in simple terms (no technical overload):
+
+### 1. **ControlServer.java** (the most important one you asked about)
+
+- It receives commands from **any** member (host or client) via the control socket.
+- When someone plays local media, the Fragment sends a command like:  
+  `MEDIA:VIDEO|http://192.168.49.1:8080/|My Song|kunbi|Kunbi Real`
+
+- **ControlServer** already has this in its `dispatch()` method (inside `ClientHandler`):
+
+  ```java
+  } else if (msg.startsWith("MEDIA:")) {
+      String[] p = msg.substring(6).split("\\|", 0);   // it splits into parts
+      if (p.length >= 3 && mListener != null) {
+          mListener.onMediaChange(p[0], p[1], p[2], mUser);   // old 3 parts
+      }
+      broadcast(msg, mUser);   // it re-broadcasts the FULL original message to everyone
+  }
+  ```
+
+- Because it **re-broadcasts the exact same string** (including the extra `|username|realName` parts), **every device** (host + all clients) receives the full 5-part message.
+
+- On the **host**, `onMediaChange` (in your Fragment) is called and it uses the new `addRemoteMedia()` which skips own media.
+
+- On the **clients**, you only need to add **one small `else if`** block in the client-side reader thread (the loop that does `while ((line = mControlIn.readLine()) != null)`).  
+  That block is the only tiny addition needed outside the Fragment.
+
+### 2. **SimpleHttpServer.java**
+
+- It only serves whatever file you set with `setMediaFile(file)`.
+- In the fixed Fragment, both host (`mHttpServer`) and client (`mClientHttpServer`) now call `setMediaFile()` and `start()` when playing local media.  
+  So the server is ready on port 8080 on **every** device that shares something. No change needed in the class itself.
+
+### 3. **WiFiDirectManager.java** and **WiFiDirectBroadcastReceiver.java**
+
+- These only handle group formation, discovery, and connection info (IP addresses).  
+  They have **nothing** to do with media commands or playback.  
+  The IP we use for streaming (`mLocalP2pIp`) is already obtained via the existing connection callbacks.
+
+### What You Must Add (Only Two Small Places)
+
+**A. In SharePlaybackFragment.java**  
+You already have the full corrected class I gave you earlier. It includes:
+- `playLocalMedia()` — called from your local video/audio list clicks.
+- `playRemoteMedia()` — called from network panel.
+- `addRemoteMedia()` — skips your own media.
+- Client HTTP server auto-start.
+- `buildStreamUrl()` with reliable local IP.
+
+**B. In your Client Reader Thread** (this is the **only** place outside the Fragment that needs one addition)
+
+Find the loop where the client reads commands from the control socket (it looks something like this in your original code):
+
+```java
+while (mRunning && (line = mControlIn.readLine()) != null) {
+    // ... existing handling for PLAY, SEEK, CHAT, etc.
+}
+```
+
+**Add this `else if` block** inside that loop (best place is after the `MEDIA:` handling if it already exists, or after `NOW_PLAYING:`):
+
+```java
+} else if (line.startsWith("MEDIA:")) {
+    String[] p = line.substring(6).split("\\|", 5);
+    if (p.length >= 5) {
+        RemoteMediaInfo media = new RemoteMediaInfo(p[3], p[4], p[0], p[1], p[2]);
+        addRemoteMedia(media);   // this is the method from the fixed Fragment
+    }
+}
+```
+
+That’s all. The 5-part message is now fully understood by clients, added to the network panel (except own media), and can be played/downloaded.
+
+### Summary – Why No Other Changes Are Needed
+
+- **ControlServer** already forwards the full command → everyone sees the new owner info.
+- **SimpleHttpServer** on each device serves its own files when told (now done in `playLocalMedia`).
+- **Download** uses the exact URL that was broadcast → it points to the correct device’s HTTP server.
+- **Own media filtering** happens only in the Fragment’s `addRemoteMedia()` — the server doesn’t care whose media it is.
+
+Just replace your `SharePlaybackFragment.java` with the full corrected version I provided last time, add the one `else if` block to your client reader loop, and rebuild.
+
+Everything will now work as requested:
+- Host and client both play broadcast media.
+- Network panel shows only **other** members’ media.
+- Members list shows everyone correctly.
+- Downloads use valid working URLs.
+
+If you paste the exact code of your client reader thread (the part with `mControlIn.readLine()`), I can show you the precise insertion point. Otherwise, the above should be clear.
+
+Let me know when you test it — we can tweak if any small runtime issue appears (e.g., exact getter names like `v.getFile()`). You're doing great!

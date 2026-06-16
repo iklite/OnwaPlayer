@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@drawable/dialog_background_rounded">
+
+    <!-- Message (set programmatically) -->
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog message"
+        android:textSize="16sp"
+        android:textColor="#FF666666"
+        android:gravity="center"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_dialog_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@drawable/edittext_rounded_border"
+        android:textColor="#Ff333333"
+        android:textSize="14sp"
+        android:layout_marginBottom="24dp"
+        android:singleLine="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E0E0E0" />
+
+    <Button
+        android:id="@+id/btn_dialog_positive"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_dialog_single"
+        android:text="OK"
+        android:textColor="#2196F3"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp" />
+
+</LinearLayout>

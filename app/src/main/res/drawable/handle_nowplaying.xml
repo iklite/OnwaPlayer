@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Layer 1 – main background: dark transparent gradient -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#CC1A1A2E"
+                android:centerColor="#DD0D0D1A"
+                android:endColor="#EE000000"
+                android:centerY="0.4"
+                android:angle="270" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- Layer 2 – white shimmer top-edge -->
+    <item android:bottom="46dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#99FFFFFF"
+                android:centerColor="#FFFFFFFF"
+                android:endColor="#99FFFFFF"
+                android:angle="0" />
+            <corners
+                android:topLeftRadius="22dp"
+                android:topRightRadius="22dp" />
+        </shape>
+    </item>
+
+    <!-- Layer 3 – inner white glow wash -->
+    <item
+        android:top="2dp"
+        android:bottom="34dp">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#33FFFFFF"
+                android:endColor="#00FFFFFF"
+                android:angle="270" />
+        </shape>
+    </item>
+
+    <!-- Layer 4 – white grip pill -->
+    <item
+        android:top="20dp"
+        android:bottom="20dp"
+        android:gravity="center">
+        <shape android:shape="rectangle">
+            <gradient
+                android:startColor="#88FFFFFF"
+                android:centerColor="#FFFFFFFF"
+                android:endColor="#88FFFFFF"
+                android:angle="0" />
+            <corners android:radius="5dp" />
+            <size
+                android:width="48dp"
+                android:height="5dp" />
+        </shape>
+    </item>
+
+</layer-list>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/dialog_background_rounded"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="8dp">
+
+    <!-- Title / Message -->
+    <TextView
+        android:id="@+id/tv_dialog_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#F0F0FF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="start"
+        android:paddingStart="4dp"
+        android:paddingEnd="4dp"
+        android:layout_marginBottom="12dp"
+        android:visibility="gone" />
+
+    <!-- Thin divider between title and list -->
+    <View
+        android:id="@+id/divider_title"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#20FFFFFF"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone" />
+
+    <!-- RecyclingView for items — height set programmatically -->
+    <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+        android:id="@+id/recycler_dialog_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="true" />
+
+    <!-- Thin divider before cancel button -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#20FFFFFF"
+        android:layout_marginTop="4dp" />
+
+    <!-- Cancel button -->
+    <Button
+        android:id="@+id/btn_dialog_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:text="Cancel"
+        android:textColor="#88FFFFFF"
+        android:textSize="13sp"
+        android:background="@drawable/button_dialog_single"
+        android:layout_marginTop="4dp" />
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background (Gray Line) -->
+    <item
+        android:id="@android:id/background"
+        android:top="7dp"
+        android:bottom="7dp">
+        <shape>
+            <solid android:color="#6200BFFF" /> <!-- Semi-transparent dark-sky blue -->
+            <size android:height="2dp" /> <!-- Thin horizontal line -->
+        </shape>
+    </item>
+
+    <!-- Progress (White Line that fills) -->
+    <item
+        android:id="@android:id/progress"
+        android:top="7dp"
+        android:bottom="7dp">
+        <clip>
+            <shape>
+                <solid android:color="#FF00BFFF" /> <!-- Dark-sky blue -->
+                <size android:height="2dp" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

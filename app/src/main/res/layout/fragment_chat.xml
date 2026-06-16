@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+fragment_chat.xml
+─────────────────
+Chat panel with members strip, hint, message list, and input bar.
+Input bar: EditText (fixed) + scrollable Send & Delete buttons.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0D0D1A">
+
+    <!-- ── ① Members chip strip ─────────────────────────────────────────── -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="#141426"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <LinearLayout
+            android:id="@+id/members_strip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:gravity="center_vertical"
+            android:background="#33000000"
+            android:visibility="gone" />
+    </HorizontalScrollView>
+
+    <!-- ── ② @mention hint ──────────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/tv_chat_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tip: start with @username to send a private message"
+        android:textColor="#4400BCD4"
+        android:textSize="11sp"
+        android:paddingStart="12dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="2dp"
+        android:visibility="visible" />
+
+    <!-- ── Message list ──────────────────────────────────────────────────── -->
+    <com.ikechi.studio.onwa.widgets.recyclerview.v1.widget.RecyclingView
+        android:id="@+id/chat_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- ── Input bar ─────────────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="#141426">
+
+        <EditText
+            android:id="@+id/chat_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Message or @username message…"
+            android:textColor="@color/black"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:background="@drawable/edittext_bg"
+            android:inputType="textMultiLine|textCapSentences"
+            android:imeOptions="actionSend" />
+
+        <!-- Scrollable button container -->
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/chat_send"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Send"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="0dp"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+
+                <Button
+                    android:id="@+id/chat_clear_history"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp"
+                    android:text="Clear"
+                    android:layout_marginStart="8dp"
+                    android:minWidth="0dp"
+                    android:background="@drawable/btn_gradient_ripple"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+</LinearLayout>

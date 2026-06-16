@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow cleartext traffic for all connections (including local IPs) -->
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <!-- Trust system certificates for HTTPS (not used, but required) -->
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

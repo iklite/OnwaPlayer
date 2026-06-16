@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SpectraViz">
+        <attr name="visualStyle" format="enum">
+            <enum name="pulsing_bars" value="0" />
+            <enum name="fluid_wave" value="1" />
+            <enum name="cosmic_circle" value="2" />
+            <enum name="nebula_sphere" value="3" />
+            <enum name="neural_network" value="4" />
+            <enum name="geometric_flow" value="5" />
+            <enum name="hologram" value="6" />
+            <enum name="crystal_grid" value="7" />
+        </attr>
+
+        <attr name="colorScheme" format="enum">
+            <enum name="cosmic_aurora" value="0" />
+            <enum name="ocean_depth" value="1" />
+            <enum name="fire_storm" value="2" />
+            <enum name="nebula" value="3" />
+            <enum name="bio_luminescent" value="4" />
+            <enum name="synthwave" value="5" />
+            <enum name="galactic" value="6" />
+            <enum name="acid_rain" value="7" />
+            <enum name="custom_gradient" value="8" />
+        </attr>
+
+        <attr name="backgroundType" format="enum">
+            <enum name="none" value="0" />
+            <enum name="gradient" value="1" />
+            <enum name="particles" value="2" />
+            <enum name="stars" value="3" />
+            <enum name="vortex" value="4" />
+        </attr>
+
+        <attr name="bandsCount" format="integer" />
+        <attr name="sensitivity" format="float" />
+        <attr name="smoothness" format="float" />
+        <attr name="reactivity" format="float" />
+        <attr name="glowIntensity" format="float" />
+        <attr name="mirrorEffect" format="boolean" />
+        <attr name="showPeaks" format="boolean" />
+        <attr name="showGlow" format="boolean" />
+        <attr name="autoRotateColors" format="boolean" />
+        <attr name="customColors" format="reference" />
+    </declare-styleable>
+	
+	<declare-styleable name="CustomTextView">
+        <attr name="customTextColor" format="color" />
+        <attr name="customTextSize" format="dimension" />
+        <attr name="customTextStyle" format="enum">
+            <enum name="normal" value="0" />
+            <enum name="bold" value="1" />
+            <enum name="italic" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CustomButton">
+        <attr name="buttonType" format="enum">
+            <enum name="primary" value="0" />
+            <enum name="secondary" value="1" />
+            <enum name="accent" value="2" />
+        </attr>
+        <attr name="cornerRadius" format="dimension" />
+    </declare-styleable>
+	
+	<declare-styleable name="IkVideoView">
+        <attr name="videoUri" format="string" />
+        <attr name="autoStart" format="boolean" />
+        <attr name="scaleType" format="enum">
+            <enum name="fitCenter" value="0" />
+            <enum name="centerCrop" value="1" />
+        </attr>
+        <attr name="showSeekBar" format="boolean" />
+    </declare-styleable> 
+	
+	<declare-styleable name="RecyclingView">
+
+        <!--
+		Scroll orientation.
+		vertical   (0) — items laid out top-to-bottom; scroll up/down.
+		horizontal (1) — items laid out left-to-right; scroll left/right.
+
+		In horizontal mode, set android:layout_height="wrap_content" so the
+		view sizes itself to the tallest item rather than filling the screen.
+		Default: vertical.
+        -->
+        <attr name="rv_orientation" format="enum">
+            <enum name="vertical"   value="0" />
+            <enum name="horizontal" value="1" />
+        </attr>
+
+        <!--
+		Reverses the layout direction.
+		When true, adapter position 0 is placed at the trailing edge
+		(bottom in vertical, right in horizontal) and items grow toward
+		the leading edge — useful for chat threads, history feeds, etc.
+		Default: false.
+        -->
+        <attr name="rv_reverseLayout" format="boolean" />
+
+        <!--
+		Snap-to-item behaviour.
+		When true the list snaps to the nearest item boundary after
+		each fling or finger release, similar to a horizontal pager.
+		Works in both orientations.
+		Default: false.
+        -->
+        <attr name="rv_snapToPosition" format="boolean" />
+
+        <!--
+		Shows or hides the scroll-position indicator bar.
+		Set to false to hide the thin bar that appears at the trailing
+		edge (right in vertical, bottom in horizontal) while scrolling.
+		Default: true.
+        -->
+        <attr name="rv_scrollBarEnabled" format="boolean" />
+
+        <!--
+		Color of the scroll-position indicator bar.
+		Accepts any color value (#RRGGBB, #AARRGGBB, @color/..., etc.).
+		Default: #99000000 (50 % opaque black).
+        -->
+        <attr name="rv_scrollBarColor" format="color" />
+
+        <!--
+		Uniform spacing inserted between items along the scroll axis.
+		Spacing appears between items only — not before the first or
+		after the last item.  Use 0dp to remove all spacing.
+		Default: 0dp.
+        -->
+        <attr name="rv_itemSpacing" format="dimension" />
+
+    </declare-styleable>
+	
+    <declare-styleable name="MultiPanelLayout">
+        <!--
+          dockStyle controls how the collapsed panel handles are presented.
+
+          "stacked" (default)
+              Handles are stacked vertically, one per row.
+              Dock height = N × 48 dp + (N − 1) × 5 dp gap.
+
+          "tabbed"
+              Handles share a single 48 dp row, laid out side-by-side as tabs.
+              Dock height = 48 dp regardless of N.
+              Recommended for 3+ panels — saves significant vertical space and
+              matches the familiar bottom-navigation-bar pattern.
+        -->
+        <attr name="dockStyle" format="enum">
+            <enum name="stacked" value="0" />
+            <enum name="tabbed"  value="1" />
+        </attr>
+		<!-- Determines whether to show or hide the docked views
+			 in Landscape mode, default is true.
+		-->
+		<attr name="hideDockedInLandscape" format="boolean"/>
+		<!-- Determines whether to lock the panels in landscape mode
+			default is false, when false, this overrides the hide
+			docked views attribute.
+		-->
+        <attr name="lockInLandscape" format="boolean"/>
+	</declare-styleable>
+	
+</resources>
+

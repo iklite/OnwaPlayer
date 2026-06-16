@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Window / surface backgrounds -->
+    <color name="window_background">#121212</color>
+    <color name="card_background">#1E1E1E</color>
+    <color name="dialog_background">#1E1E1E</color>
+    <color name="surface">#121212</color>
+    <color name="background_white">#121212</color>
+    <color name="background_dark">#121212</color>
+
+    <!-- Primary / status / navigation bars -->
+    <color name="primary_dark">#121212</color>             <!-- dark status bar -->
+    <color name="status_bar">#000000</color>
+    <color name="navigation_bar">#000000</color>
+
+    <!-- Accent (same as light to maintain brand) -->
+    <color name="accent">#FF4081</color>
+
+    <!-- Text colours for dark backgrounds -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#BDBDBD</color>
+    <color name="text_hint">#616161</color>
+    <color name="text_on_primary">#FFFFFF</color>
+    <color name="text_on_accent">#000000</color>           <!-- contrast on pink/red accent -->
+    <color name="text_primary_dark">#FFFFFF</color>
+    <color name="text_secondary_dark">#BDBDBD</color>
+    <color name="text_hint_dark">#616161</color>
+
+    <!-- Dividers & borders -->
+    <color name="divider">#2A2A2A</color>
+    <color name="list_divider">#2A2A2A</color>
+
+    <!-- Semi‑transparent overlays -->
+    <color name="semi_transparent_white">#80FFFFFF</color>
+    <color name="semi_transparent">#80000000</color>
+
+    <!-- Ripple / highlight on dark -->
+    <color name="highlight">#1F000000</color>
+    <color name="bg_ripple">#1FFFFFFF</color>
+
+    <!-- Triadic brand (optional dark variant) -->
+    <color name="triadic_primary">#121212</color>
+
+    <!-- Other backgrounds (adjust if used) -->
+    <color name="chat_background">#121212</color>
+    <color name="bg_primary">#121212</color>
+    <color name="bg_secondary">#1E1E1E</color>
+    <color name="bg_tertiary">#252525</color>
+    <color name="bg_card">#1E1E1E</color>
+    <color name="bg_dialog">#1E1E1E</color>
+
+    <!-- Seekbar / specific elements (keep accent colourful) -->
+    <color name="seekBarBackground">#424242</color>
+    <color name="seekBarProgress">#FF4081</color>
+	<!-- Equalizer colors -->
+	<color name="equalizer_positive">#4CAF50</color>
+	<color name="equalizer_negative">#F44336</color>
+</resources>

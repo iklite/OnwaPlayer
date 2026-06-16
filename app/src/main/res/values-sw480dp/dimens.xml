@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="spacing_xs">5dp</dimen>
+    <dimen name="spacing_sm">9dp</dimen>
+    <dimen name="spacing_md">18dp</dimen>
+    <dimen name="spacing_lg">27dp</dimen>
+    <dimen name="spacing_xl">36dp</dimen>
+    <dimen name="spacing_xxl">54dp</dimen>
+
+    <dimen name="margin_card">18dp</dimen>
+    <dimen name="padding_card">18dp</dimen>
+    <dimen name="margin_section">18dp</dimen>
+    <dimen name="padding_section">18dp</dimen>
+
+    <dimen name="button_height">54dp</dimen>
+    <dimen name="button_padding_horizontal">18dp</dimen>
+    <dimen name="button_margin_vertical">14dp</dimen>
+
+    <dimen name="text_size_small">14sp</dimen>
+    <dimen name="text_size_regular">16sp</dimen>
+    <dimen name="text_size_medium">18sp</dimen>
+    <dimen name="text_size_large">20sp</dimen>
+    <dimen name="text_size_xlarge">22sp</dimen>
+    <dimen name="text_size_header">27sp</dimen>
+
+    <dimen name="icon_size_small">27dp</dimen>
+    <dimen name="icon_size_medium">36dp</dimen>
+    <dimen name="icon_size_large">54dp</dimen>
+    <dimen name="switch_height">54dp</dimen>
+    <dimen name="slider_height">36dp</dimen>
+
+</resources>
