@@ -1,25 +1,34 @@
 # OnwaPlayer
 
- # OnwaPlayer A.K.A (Onwa Media Player Pro) is a lightweight but amazing Android media player built using the native MediaPlayer API.
-Enhanced with custom UI components and additional utilities for a smoother and more flexible media experience.
+# OnwaPlayer A.K.A (Onwa Media Player Pro) is a lightweight but amazing Android media player built using the native MediaPlayer API.
+Enhanced with custom UI
+components and peer-to-peer WiFi Direct capabilities for media sharing and playback synchronization.
+It focuses on performance, modular custom views, and a clean media experience across audio and video playback.
 📱 Key Features
-Audio and video playback using Android MediaPlayer
-Custom IkVideoView for video rendering and control
-Custom waveform seek bar for media scrubbing
-Custom dialog system (IkBeautifulDialog)
-Built-in logging utility:
+🎵 Audio playback using Android MediaPlayer
+🎬 Video playback using MediaPlayer
+📺 Custom IkVideoView for video rendering and control
+📊 Custom waveform seek bar for precise scrubbing
+💬 Custom dialog system (IkBeautifulDialog)
+📡 WiFi Direct media sharing
+🔄 Playback synchronization between devices (via WiFi Direct)
+🧾 Logging utility:
 Logs to Logcat (android.util.Log)
-Saves logs to the device Downloads folder
-Peer-to-peer WiFi Direct media sharing with playback syncing
-Supports Android API 23 to 35+
+Saves logs to device Downloads folder
+📁 Media gallery browsing (audio & video)
+⚙️ Built-in settings and tools UI
+📊 Stats and playback tracking screens
+🎚️ Equalizer UI module (custom implementation)
+📲 Supports Android API 23 → 35+
 🧱 Tech Stack
 Java (Android SDK)
 Native MediaPlayer
-Custom Views and UI components
-Canvas-based drawing (waveform)
-File-based logging system
-Android WiFi Direct APIs
-📂 Project Structure (high level)
+Custom Views (IkVideoView, waveform components, etc.)
+Canvas-based rendering
+WiFi Direct APIs
+File I/O (logging system)
+XML-based UI layouts
+📂 Project Structure (High Level)
 Plain text
 com.ikechi.studio.onwa.player
 ├── player/
@@ -27,37 +36,123 @@ com.ikechi.studio.onwa.player
 ├── dialog/
 ├── utils/
 ├── activity/
-└── adapter/
+├── adapter/
+└── model/
+📸 Screenshots
+🎧 Audio Experience
+Markdown
+![Audio Gallery](screenshots/audio/audio_gallery.png)
+
+![Now Playing](screenshots/audio/audio_now_playing_0.png)
+
+![Now Playing 2](screenshots/audio/audio_now_playing_1.png)
+
+![Now Playing 3](screenshots/audio/audio_now_playing_2.png)
+
+![Music Queue](screenshots/audio/music_queue.png)
+
+![Currently Playing List](screenshots/audio/currently_playing_list.png)
+![Video Player](screenshots/video/video_playback_screen.png)
+
+![Video Controls](screenshots/video/video_playback_controls.png)
+
+![Video Gallery](screenshots/video/video_gallery.png)
+
+![Landscape Mode](screenshots/video/media_syncing_screen_video_landscape.png)
+
+![Video Sync Panel](screenshots/video/media_syncing_screen_video_panel.png)
+
+![Video Panel 50%](screenshots/video/media_syncing_screen_video_panel_at_50_percent.png)
+
+![Video Playing Sync](screenshots/video/media_syncing_screen_video_playing.png)
+🎬 Video Playback
+Markdown
+📡 Media Syncing & WiFi Direct
+Markdown
+![Sync & Sharing](screenshots/media_sync/media_syncing_and_sharing_playback_screen.png)
+
+![Network Panel](screenshots/media_sync/media_syncing_screen_network_panel.png)
+
+![Chat Panel](screenshots/media_sync/media_syncing_screen_chat_panel.png)
+
+![Audio Sync Panel](screenshots/media_sync/media_syncing_screen_audio_panel.png)
+
+![Audio Panel 50%](screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent.png)
+
+![Bottom Navigation](screenshots/media_sync/media_syncing_screen_bottom_nav_visible.png)
+
+![Bottom Navigation 2](screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png)
+⚙️ Settings & Tools
+Markdown
+![Settings](screenshots/settings/settings_page_0.png)
+
+![Settings 2](screenshots/settings/settings_page_1.png)
+
+![Settings 3](screenshots/settings/settings_page_2.png)
+
+![Settings 4](screenshots/settings/settings_page_3.png)
+
+![More Options](screenshots/settings/more_options_dialog.png)
+🎚️ Equalizer
+Markdown
+![Equalizer](screenshots/equalizer/equalizer_0.png)
+
+![Equalizer Preset](screenshots/equalizer/equalizer_1.png)
+📊 Stats
+Markdown
+![Stats Overview](screenshots/stats/stats_page_0.png)
+
+![Stats Details](screenshots/stats/stats_page_1.png)
+🧾 Metadata Editor
+Markdown
+![Metadata Editor](screenshots/metadata/metadata_editor.png)
+🎛️ Playlist
+Markdown
+![Playlist](screenshots/playlist/playlist.png)
 🚀 Installation
 Bash
 git clone https://github.com/iklite/OnwaPlayer.git
-Open in Android Studio, sync Gradle, and run on a device or emulator (API 23+).
+Then:
+Open in Android Studio
+Sync Gradle
+Run on device or emulator (API 23+)
 🔐 Permissions
 The app may require:
-Storage/media permissions (for reading local files)
+Storage / media permissions (for reading local files)
 WiFi permissions (for WiFi Direct sharing)
-Foreground service permission (for playback stability)
+Foreground service permission (for stable playback)
+📱 Supported Android Versions
+Minimum SDK: 23
+Target: 35+
 📄 License
 This project is licensed under the MIT License.
 You are free to:
-Use this software in your own projects
-Modify it
-Distribute it (including commercial use)
-Conditions
-You must include the original MIT license and give credit to the original author.
-If you use parts of this project, your work must also remain open source.
-You are not allowed to publish this project verbatim as-is under your own name without meaningful modification or originality.
-🤝 Contribution
-Contributions are welcome and encouraged.
-The goal is to improve performance, stability, UI polish, and expand features such as media handling and sharing.
-If you contribute improvements, you are free to:
-Use your contributions in your own projects
-Publish your own work as open source
-Build derivative systems
-Please ensure that:
-You maintain proper attribution to the original project
-You respect the license terms
-You do not re-upload this project unchanged as your own work
+Use
+Modify
+Distribute
+Include in commercial projects
+Conditions:
+You must include the original MIT license
+You must give credit to the original author
+Derivative work should remain open source where possible
+You should not re-upload this project verbatim as your own without meaningful modification or originality.
+
+🤝 Contributing
+Contributions are welcome.
+We are looking for improvements in:
+Playback performance
+UI/UX polish
+Waveform accuracy
+WiFi Direct syncing stability
+Code optimization and maintainability
+Please ensure:
+Changes are focused and well-tested
+You respect the existing architecture
+You do not break playback or syncing features.
+
 👤 Author
 GitHub: https://github.com/iklite⁠�
 Project: OnwaPlayer
+
+⚠️ Notes
+This project is still evolving. Structure, features, and documentation may improve over time as development continues.
