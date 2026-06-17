@@ -1,6 +1,7 @@
-#OnwaPlayer
+# OnwaPlayer
 
-OnwaPlayer A.K.A (Onwa Media Player Pro) is a lightweight Android media player built using the native MediaPlayer API, enhanced with custom UI components and additional utilities for a smoother and more flexible media experience.
+ # OnwaPlayer A.K.A (Onwa Media Player Pro) is an lightweight but amazing Android media player built using the native MediaPlayer API.
+Enhanced with custom UI components and additional utilities for a smoother and more flexible media experience.
 📱 Key Features
 Audio and video playback using Android MediaPlayer
 Custom IkVideoView for video rendering and control
