@@ -1,5 +1,5 @@
-OnwaPlayer
-OnwaPlayer
+#OnwaPlayer
+
 OnwaPlayer is a lightweight Android media player built using the native MediaPlayer API, enhanced with custom UI components and additional utilities for a smoother and more flexible media experience.
 📱 Key Features
 Audio and video playback using Android MediaPlayer
