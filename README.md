@@ -29,7 +29,7 @@ WiFi Direct APIs
 File I/O (logging system)
 XML-based UI layouts
 📂 Project Structure (High Level)
-Plain text
+
 com.ikechi.studio.onwa.player
 ├── player/
 ├── view/
@@ -73,7 +73,7 @@ com.ikechi.studio.onwa.player
 
 🎬 Video Playback
 
-📡 Media Syncing & WiFi Direct
+## 📡 Media Syncing & WiFi Direct
 
 ![Sync & Sharing](screenshots/media_sync/media_syncing_and_sharing_playback_screen.png)
 
@@ -85,9 +85,11 @@ com.ikechi.studio.onwa.player
 
 ![Audio Panel 50%](screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent.png)
 
+![Audio Panel 50% Variant](screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent_2.png)
+
 ![Bottom Navigation](screenshots/media_sync/media_syncing_screen_bottom_nav_visible.png)
 
-![Bottom Navigation 2](screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png)
+![Bottom Navigation Expanded](screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png)
 
 
 ⚙️ Settings & Tools
