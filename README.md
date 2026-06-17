@@ -38,9 +38,12 @@ com.ikechi.studio.onwa.player
 ├── activity/
 ├── adapter/
 └── model/
+
+
 📸 Screenshots
+
 🎧 Audio Experience
-Markdown
+
 ![Audio Gallery](screenshots/audio/audio_gallery.png)
 
 ![Now Playing](screenshots/audio/audio_now_playing_0.png)
@@ -52,6 +55,7 @@ Markdown
 ![Music Queue](screenshots/audio/music_queue.png)
 
 ![Currently Playing List](screenshots/audio/currently_playing_list.png)
+
 ![Video Player](screenshots/video/video_playback_screen.png)
 
 ![Video Controls](screenshots/video/video_playback_controls.png)
@@ -65,10 +69,12 @@ Markdown
 ![Video Panel 50%](screenshots/video/media_syncing_screen_video_panel_at_50_percent.png)
 
 ![Video Playing Sync](screenshots/video/media_syncing_screen_video_playing.png)
+
+
 🎬 Video Playback
-Markdown
+
 📡 Media Syncing & WiFi Direct
-Markdown
+
 ![Sync & Sharing](screenshots/media_sync/media_syncing_and_sharing_playback_screen.png)
 
 ![Network Panel](screenshots/media_sync/media_syncing_screen_network_panel.png)
@@ -82,8 +88,10 @@ Markdown
 ![Bottom Navigation](screenshots/media_sync/media_syncing_screen_bottom_nav_visible.png)
 
 ![Bottom Navigation 2](screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png)
+
+
 ⚙️ Settings & Tools
-Markdown
+
 ![Settings](screenshots/settings/settings_page_0.png)
 
 ![Settings 2](screenshots/settings/settings_page_1.png)
@@ -93,22 +101,32 @@ Markdown
 ![Settings 4](screenshots/settings/settings_page_3.png)
 
 ![More Options](screenshots/settings/more_options_dialog.png)
+
+
 🎚️ Equalizer
-Markdown
+
 ![Equalizer](screenshots/equalizer/equalizer_0.png)
 
 ![Equalizer Preset](screenshots/equalizer/equalizer_1.png)
+
+
 📊 Stats
-Markdown
+
 ![Stats Overview](screenshots/stats/stats_page_0.png)
 
 ![Stats Details](screenshots/stats/stats_page_1.png)
+
+
 🧾 Metadata Editor
-Markdown
+
 ![Metadata Editor](screenshots/metadata/metadata_editor.png)
+
+
 🎛️ Playlist
-Markdown
+
 ![Playlist](screenshots/playlist/playlist.png)
+
+
 🚀 Installation
 Bash
 git clone https://github.com/iklite/OnwaPlayer.git
@@ -116,14 +134,18 @@ Then:
 Open in Android Studio
 Sync Gradle
 Run on device or emulator (API 23+)
+
 🔐 Permissions
 The app may require:
 Storage / media permissions (for reading local files)
+
 WiFi permissions (for WiFi Direct sharing)
 Foreground service permission (for stable playback)
+
 📱 Supported Android Versions
 Minimum SDK: 23
 Target: 35+
+
 📄 License
 This project is licensed under the MIT License.
 You are free to:
@@ -145,6 +167,7 @@ UI/UX polish
 Waveform accuracy
 WiFi Direct syncing stability
 Code optimization and maintainability
+
 Please ensure:
 Changes are focused and well-tested
 You respect the existing architecture
