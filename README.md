@@ -28,16 +28,6 @@ Canvas-based rendering
 WiFi Direct APIs
 File I/O (logging system)
 XML-based UI layouts
-📂 Project Structure (High Level)
-
-com.ikechi.studio.onwa.player
-├── player/
-├── view/
-├── dialog/
-├── utils/
-├── activity/
-├── adapter/
-└── model/
 
 
 📸 Screenshots
@@ -181,3 +171,6 @@ Project: OnwaPlayer
 
 ⚠️ Notes
 This project is still evolving. Structure, features, and documentation may improve over time as development continues.
+You can also join our community on WhatsApp:
+https://chat.whatsapp.com/D5NYb2evjjRIAtkuHOKvOq
+
