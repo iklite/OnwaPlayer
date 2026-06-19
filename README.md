@@ -179,9 +179,6 @@ Comprehensive settings system providing control over:
 - Logs to Logcat (android.util.Log)
 - Saves logs to device Downloads folder
 
-## 📂 Project Structure (High Level)
-
-```
 
 ## 📸 Screenshots
 
@@ -267,9 +264,8 @@ Comprehensive settings system providing control over:
 
 ## 🚀 Installation
 
-```bash
+bash
 git clone https://github.com/iklite/OnwaPlayer.git
-```
 
 Then:
 
