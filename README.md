@@ -1,4 +1,4 @@
-🎵 OnwaPlayer A.K.A (Onwa Media Player Pro)
+# OnwaPlayer A.K.A (Onwa Media Player Pro)
 
 A powerful, feature-rich Android media player built with the native Android MediaPlayer framework and an extensive collection of custom UI components, visualization engines, media management tools, and Wi-Fi Direct synchronization technologies.
 
@@ -6,293 +6,266 @@ Onwa Media Player Pro is designed to deliver a smooth and immersive audio and vi
 
 Whether you're listening to music, watching videos, managing playlists, editing metadata, analyzing playback statistics, or synchronizing media across devices, Onwa provides a complete media ecosystem built entirely in Java.
 
-✨ Highlights
+## ✨ Highlights
 
-· Native Android MediaPlayer-based playback engine
-· Audio and video playback support
-· Wi-Fi Direct media sharing and synchronization
-· Real-time playback synchronization across connected devices
-· Custom OpenGL visualizers
-· Advanced waveform seekbar
-· Playlist management
-· Metadata editor
-· Playback statistics and analytics
-· Custom equalizer interface
-· Media library browsing and organization
-· Beautiful custom dialogs and UI components
-· Optimized for Android 6.0 through Android 15+
+- Native Android MediaPlayer-based playback engine
+- Audio and video playback support
+- Wi-Fi Direct media sharing and synchronization
+- Real-time playback synchronization across connected devices
+- Custom OpenGL visualizers
+- Advanced waveform seekbar
+- Playlist management
+- Metadata editor
+- Playback statistics and analytics
+- Custom equalizer interface
+- Media library browsing and organization
+- Beautiful custom dialogs and UI components
+- Optimized for Android 6.0 through Android 15+
 
-🎧 Audio Features
+## 🎧 Audio Features
 
-Music Playback
+### Music Playback
+- High-performance audio playback
+- Background playback support
+- Queue management
+- Repeat and shuffle modes
+- Favorite tracks support
+- Recently played tracking
+- Playback history tracking
 
-· High-performance audio playback
-· Background playback support
-· Queue management
-· Repeat and shuffle modes
-· Favorite tracks support
-· Recently played tracking
-· Playback history tracking
+### Audio Library
+- Automatic media discovery
+- MediaStore integration
+- Intelligent storage scanning fallback
+- Album-based browsing
+- Artist-based browsing
+- Playlist browsing
+- Track metadata extraction
 
-Audio Library
+### Album Artwork
+- Embedded artwork extraction
+- Artwork caching
+- Optimized memory management
+- Dynamic default artwork generation
 
-· Automatic media discovery
-· MediaStore integration
-· Intelligent storage scanning fallback
-· Album-based browsing
-· Artist-based browsing
-· Playlist browsing
-· Track metadata extraction
+### Waveform Experience
+- Custom waveform seekbar
+- Precision scrubbing
+- Real-time position tracking
+- Smooth visual feedback
 
-Album Artwork
+### Audio Visualization
+- OpenGL ES visualizer engine
+- Beat detection system
+- Real-time audio spectrum rendering
+- Hardware-accelerated graphics
 
-· Embedded artwork extraction
-· Artwork caching
-· Optimized memory management
-· Dynamic default artwork generation
+## 🎬 Video Features
 
-Waveform Experience
+### Video Playback
+- Native MediaPlayer video engine
+- Hardware accelerated decoding
+- Custom video controls
+- Landscape support
+- Playback position memory
+- Fast seeking
 
-· Custom waveform seekbar
-· Precision scrubbing
-· Real-time position tracking
-· Smooth visual feedback
+### Custom Video Components
+- Custom IkVideoView implementation
+- Advanced playback controls
+- Gesture-driven interactions
+- Optimized rendering pipeline
 
-Audio Visualization
+### Video Library
+- Automatic video discovery
+- Thumbnail generation and caching
+- Media metadata extraction
+- Fast library loading
 
-· OpenGL ES visualizer engine
-· Beat detection system
-· Real-time audio spectrum rendering
-· Hardware-accelerated graphics
-
-🎬 Video Features
-
-Video Playback
-
-· Native MediaPlayer video engine
-· Hardware accelerated decoding
-· Custom video controls
-· Landscape support
-· Playback position memory
-· Fast seeking
-
-Custom Video Components
-
-· Custom IkVideoView implementation
-· Advanced playback controls
-· Gesture-driven interactions
-· Optimized rendering pipeline
-
-Video Library
-
-· Automatic video discovery
-· Thumbnail generation and caching
-· Media metadata extraction
-· Fast library loading
-
-📡 Wi-Fi Direct Media Sync
+## 📡 Wi-Fi Direct Media Sync
 
 One of the flagship features of Onwa Media Player Pro.
 
-Media Sharing
+### Media Sharing
+- Device-to-device media transfer
+- Peer discovery
+- Local network communication
+- Wireless media sharing
 
-· Device-to-device media transfer
-· Peer discovery
-· Local network communication
-· Wireless media sharing
+### Playback Synchronization
+- Real-time playback synchronization
+- Multi-device media sessions
+- Synchronized play/pause actions
+- Shared playback control
 
-Playback Synchronization
+### Communication Panels
+- Device management interface
+- Network control panel
+- Media synchronization dashboard
+- Integrated chat interface
 
-· Real-time playback synchronization
-· Multi-device media sessions
-· Synchronized play/pause actions
-· Shared playback control
+## 🎚️ Equalizer System
 
-Communication Panels
+- Custom equalizer interface
+- Frequency band controls
+- Preset management
+- Real-time audio adjustments
+- User-friendly audio tuning experience
 
-· Device management interface
-· Network control panel
-· Media synchronization dashboard
-· Integrated chat interface
-
-🎚️ Equalizer System
-
-· Custom equalizer interface
-· Frequency band controls
-· Preset management
-· Real-time audio adjustments
-· User-friendly audio tuning experience
-
-📝 Metadata Editor
+## 📝 Metadata Editor
 
 Built-in metadata editing capabilities allow users to manage:
+- Song title
+- Artist information
+- Album information
+- Track information
+- Media organization data
 
-· Song title
-· Artist information
-· Album information
-· Track information
-· Media organization data
-
-📊 Playback Statistics
+## 📊 Playback Statistics
 
 Track and analyze listening habits with:
+- Play count tracking
+- Favorite tracking
+- Usage analytics
+- Playback history
+- Library statistics
 
-· Play count tracking
-· Favorite tracking
-· Usage analytics
-· Playback history
-· Library statistics
-
-🎨 Custom UI Framework
+## 🎨 Custom UI Framework
 
 A major portion of the application is powered by custom-built UI components.
 
-Included Components
+### Included Components
+- IkBeautifulDialog
+- WaveformSeekBar
+- IkVideoView
+- OpenGL Visualizer Views
+- Custom RecyclerView implementations
+- Animated panels
+- Media synchronization interfaces
+- Settings framework
 
-· IkBeautifulDialog
-· WaveformSeekBar
-· IkVideoView
-· OpenGL Visualizer Views
-· Custom RecyclerView implementations
-· Animated panels
-· Media synchronization interfaces
-· Settings framework
-
-⚙️ Settings & Tools
+## ⚙️ Settings & Tools
 
 Comprehensive settings system providing control over:
+- Playback behavior
+- Media scanning options
+- Synchronization settings
+- UI preferences
+- Performance tuning
+- Application tools
 
-· Playback behavior
-· Media scanning options
-· Synchronization settings
-· UI preferences
-· Performance tuning
-· Application tools
+## 🧱 Technical Overview
 
-🧱 Technical Overview
+### Core Technologies
+- Java
+- Android SDK
+- Native MediaPlayer API
+- OpenGL ES 3.0
+- MediaStore
+- Wi-Fi Direct APIs
+- SQLite
+- Canvas Rendering
+- XML Layout System
 
-Core Technologies
+### Performance Optimizations
+- Thumbnail caching
+- Album art caching
+- Database-backed media indexing
+- Asynchronous media scanning
+- Hardware-accelerated rendering
+- Memory-conscious bitmap handling
 
-· Java
-· Android SDK
-· Native MediaPlayer API
-· OpenGL ES 3.0
-· MediaStore
-· Wi-Fi Direct APIs
-· SQLite
-· Canvas Rendering
-· XML Layout System
+### Logging Utility
+- Logs to Logcat (android.util.Log)
+- Saves logs to device Downloads folder
 
-Performance Optimizations
-
-· Thumbnail caching
-· Album art caching
-· Database-backed media indexing
-· Asynchronous media scanning
-· Hardware-accelerated rendering
-· Memory-conscious bitmap handling
-
-Logging Utility
-
-· Logs to Logcat (android.util.Log)
-· Saves logs to device Downloads folder
-
-📂 Project Structure (High Level)
+## 📂 Project Structure (High Level)
 
 ```
-com.ikechi.studio.onwa.player
-├── player/
-├── view/
-├── dialog/
-├── utils/
-├── activity/
-├── adapter/
-└── model/
-```
 
-📸 Screenshots
+## 📸 Screenshots
 
-🎧 Audio Experience
+### 🎧 Audio Experience
 
-screenshots/audio/audio_gallery.png
+![Audio Gallery](screenshots/audio/audio_gallery.png)
 
-screenshots/audio/audio_now_playing_0.png
+![Now Playing](screenshots/audio/audio_now_playing_0.png)
 
-screenshots/audio/audio_now_playing_1.png
+![Now Playing 2](screenshots/audio/audio_now_playing_1.png)
 
-screenshots/audio/audio_now_playing_2.png
+![Now Playing 3](screenshots/audio/audio_now_playing_2.png)
 
-screenshots/audio/music_queue.png
+![Music Queue](screenshots/audio/music_queue.png)
 
-screenshots/audio/currently_playing_list.png
+![Currently Playing List](screenshots/audio/currently_playing_list.png)
 
-🎬 Video Playback
+### 🎬 Video Playback
 
-screenshots/video/video_playback_screen.png
+![Video Player](screenshots/video/video_playback_screen.png)
 
-screenshots/video/video_playback_controls.png
+![Video Controls](screenshots/video/video_playback_controls.png)
 
-screenshots/video/video_gallery.png
+![Video Gallery](screenshots/video/video_gallery.png)
 
-screenshots/video/media_syncing_screen_video_landscape.png
+![Landscape Mode](screenshots/video/media_syncing_screen_video_landscape.png)
 
-screenshots/video/media_syncing_screen_video_panel.png
+![Video Sync Panel](screenshots/video/media_syncing_screen_video_panel.png)
 
-screenshots/video/media_syncing_screen_video_panel_at_50_percent.png
+![Video Panel 50%](screenshots/video/media_syncing_screen_video_panel_at_50_percent.png)
 
-screenshots/video/media_syncing_screen_video_playing.png
+![Video Playing Sync](screenshots/video/media_syncing_screen_video_playing.png)
 
-📡 Media Syncing & WiFi Direct
+### 📡 Media Syncing & WiFi Direct
 
-screenshots/media_sync/media_syncing_and_sharing_playback_screen.png
+![Sync & Sharing](screenshots/media_sync/media_syncing_and_sharing_playback_screen.png)
 
-screenshots/media_sync/media_syncing_screen_network_panel.png
+![Network Panel](screenshots/media_sync/media_syncing_screen_network_panel.png)
 
-screenshots/media_sync/media_syncing_screen_chat_panel.png
+![Chat Panel](screenshots/media_sync/media_syncing_screen_chat_panel.png)
 
-screenshots/media_sync/media_syncing_screen_audio_panel.png
+![Audio Sync Panel](screenshots/media_sync/media_syncing_screen_audio_panel.png)
 
-screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent.png
+![Audio Panel 50%](screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent.png)
 
-screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent_2.png
+![Audio Panel 50% Variant](screenshots/media_sync/media_syncing_screen_audio_panel_at_50_percent_2.png)
 
-screenshots/media_sync/media_syncing_screen_bottom_nav_visible.png
+![Bottom Navigation](screenshots/media_sync/media_syncing_screen_bottom_nav_visible.png)
 
-screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png
+![Bottom Navigation Expanded](screenshots/media_sync/media_syncing_screen_bottom_nav_visible_1.png)
 
-⚙️ Settings & Tools
+### ⚙️ Settings & Tools
 
-screenshots/settings/settings_page_0.png
+![Settings](screenshots/settings/settings_page_0.png)
 
-screenshots/settings/settings_page_1.png
+![Settings 2](screenshots/settings/settings_page_1.png)
 
-screenshots/settings/settings_page_2.png
+![Settings 3](screenshots/settings/settings_page_2.png)
 
-screenshots/settings/settings_page_3.png
+![Settings 4](screenshots/settings/settings_page_3.png)
 
-screenshots/settings/more_options_dialog.png
+![More Options](screenshots/settings/more_options_dialog.png)
 
-🎚️ Equalizer
+### 🎚️ Equalizer
 
-screenshots/equalizer/equalizer_0.png
+![Equalizer](screenshots/equalizer/equalizer_0.png)
 
-screenshots/equalizer/equalizer_1.png
+![Equalizer Preset](screenshots/equalizer/equalizer_1.png)
 
-📊 Stats
+### 📊 Stats
 
-screenshots/stats/stats_page_0.png
+![Stats Overview](screenshots/stats/stats_page_0.png)
 
-screenshots/stats/stats_page_1.png
+![Stats Details](screenshots/stats/stats_page_1.png)
 
-📝 Metadata Editor
+### 📝 Metadata Editor
 
-screenshots/metadata/metadata_editor.png
+![Metadata Editor](screenshots/metadata/metadata_editor.png)
 
-🎛️ Playlist Management
+### 🎛️ Playlist Management
 
-screenshots/playlist/playlist.png
+![Playlist](screenshots/playlist/playlist.png)
 
-🚀 Installation
+## 🚀 Installation
 
 ```bash
 git clone https://github.com/iklite/OnwaPlayer.git
@@ -366,7 +339,7 @@ Please ensure:
 
 👤 Author
 
-Developer: Ikechi Studio
+Developer: David Wilson Okere[Ikechi Studio].
 
 GitHub: https://github.com/iklite
 
