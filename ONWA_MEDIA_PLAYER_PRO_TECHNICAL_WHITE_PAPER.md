@@ -1,5 +1,5 @@
-Onwa Media Player Pro
-AKA OnwaPlayer
+# OnwaPlayer A.K.A (Onwa Media Player Pro)
+
 Technical White Paper
 
 Version 1.0
